@@ -64,6 +64,7 @@
      <None Include="Assets\rawLouvre\FileNames.txt" />
      <None Include="Assets\raw\FileNames.txt" />
      <None Include="Assets\rawITMO\FileNames.txt" />
+     <None Include="Assets\rawUfa2\FileNames.txt" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/Users/aishayakupova/Unity/[Practice]/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
@@ -639,19 +640,7 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\rawUfa2\BulkMetadata!1m2!1s!2u927.raw" />
-    <Content Include="Assets\rawUfa2\BulkMetadata!1m2!1s3061!2u927.raw" />
-    <Content Include="Assets\rawUfa2\BulkMetadata!1m2!1s30614271!2u927.raw" />
-    <Content Include="Assets\rawUfa2\BulkMetadata!1m2!1s306142717370!2u927.raw" />
-    <Content Include="Assets\rawUfa2\FileNames.txt" />
-    <Content Include="Assets\rawUfa2\NodeData!1m2!1s306142717370725!2u927!2e1!3u933!4b0.raw" />
-    <Content Include="Assets\rawUfa2\NodeData!1m2!1s3061427173707250!2u927!2e1!3u933!4b0.raw" />
-    <Content Include="Assets\rawUfa2\NodeData!1m2!1s3061427173707251!2u927!2e1!3u933!4b0.raw" />
-    <Content Include="Assets\rawUfa2\NodeData!1m2!1s3061427173707252!2u927!2e1!3u933!4b0.raw" />
-    <Content Include="Assets\rawUfa2\NodeData!1m2!1s3061427173707253!2u927!2e1!3u933!4b0.raw" />
-    <Content Include="Assets\rawUfa2\NodeData!1m2!1s3061427173707255!2u927!2e1!3u933!4b0.raw" />
-    <Content Include="Assets\rawUfa2\NodeData!1m2!1s3061427173707257!2u927!2e1!3u933!4b0.raw" />
-    <Content Include="Assets\rawUfa2\PlanetoidMetadata.raw" />
+    <Content Include="Assets\s1.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

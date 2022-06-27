@@ -60,15 +60,19 @@ public class Generator : MonoBehaviour
                 filter.mesh = mesh;
                 gameObject.transform.parent = map.transform;
                 gameObject.transform.Rotate(-90,0,0);
-                //var tex = new Texture2D((int) curMesh.TexW,(int) curMesh.TexH, TextureFormat.RGBA32, true);
-                //check .bmp or .jpg
-               // var texFile = File.ReadAllBytes("Assets/obj/30604060716363607-20-927/tex_"+ curMesh.Name+".bmp");
-               // var bmpLoader = new BMPLoader();
-               // var bmpImg = bmpLoader.LoadBMP(texFile);
-               // tex = bmpImg.ToTexture2D();
-                // var texFile = File.ReadAllBytes("Assets/obj/30607070716041707-20-927/tex_"+ curMesh.Name+".jpg");
-                // tex.LoadImage(texFile);
-                //rend.material.mainTexture = tex;
+                var tex = new Texture2D((int) curMesh.TexW,(int) curMesh.TexH, TextureFormat.RGBA32, true);
+                var texFile = File.ReadAllBytes("Assets/obj/30604060716363607-20-927/tex_"+ curMesh.Name+".bmp");
+                if (curMesh.Is_jpg)
+                {
+                     tex.LoadImage(texFile);
+                }else
+                {      
+                    var bmpLoader = new BMPLoader();
+                    var bmpImg = bmpLoader.LoadBMP(texFile);
+                    tex = bmpImg.ToTexture2D();
+
+                }
+                rend.material.mainTexture = tex;
             }
             
         }
