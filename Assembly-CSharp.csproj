@@ -58,8 +58,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Create.cs" />
+     <Compile Include="Assets\BMPLoader.cs" />
      <Compile Include="Assets\Generator.cs" />
+     <None Include="Assets\rawUfa\FileNames.txt" />
+     <None Include="Assets\rawLouvre\FileNames.txt" />
+     <None Include="Assets\raw\FileNames.txt" />
+     <None Include="Assets\rawITMO\FileNames.txt" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/Users/aishayakupova/Unity/[Practice]/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
@@ -267,11 +271,17 @@
  <Reference Include="s1">
  <HintPath>/Users/aishayakupova/Unity/[Practice]/Assets/s1.dll</HintPath>
  </Reference>
+ <Reference Include="System.Drawing.Common">
+ <HintPath>/Users/aishayakupova/Unity/[Practice]/Assets/System.Drawing.Common.dll</HintPath>
+ </Reference>
  <Reference Include="Google.Protobuf">
  <HintPath>/Users/aishayakupova/Unity/[Practice]/Assets/Plugins/Google.Protobuf.dll</HintPath>
  </Reference>
  <Reference Include="System.Buffers">
  <HintPath>/Users/aishayakupova/Unity/[Practice]/Assets/Plugins/System.Buffers.dll</HintPath>
+ </Reference>
+ <Reference Include="DotSpatial.Projections">
+ <HintPath>/Users/aishayakupova/Unity/[Practice]/Assets/Plugins/DotSpatial.Projections.dll</HintPath>
  </Reference>
  <Reference Include="System.Runtime.CompilerServices.Unsafe">
  <HintPath>/Users/aishayakupova/Unity/[Practice]/Assets/Plugins/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
@@ -627,6 +637,21 @@
  <Reference Include="mscorlib">
  <HintPath>/Applications/Unity/Hub/Editor/2019.3.15f1/Unity.app/Contents/NetStandard/compat/2.0.0/shims/netfx/mscorlib.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\rawUfa2\BulkMetadata!1m2!1s!2u927.raw" />
+    <Content Include="Assets\rawUfa2\BulkMetadata!1m2!1s3061!2u927.raw" />
+    <Content Include="Assets\rawUfa2\BulkMetadata!1m2!1s30614271!2u927.raw" />
+    <Content Include="Assets\rawUfa2\BulkMetadata!1m2!1s306142717370!2u927.raw" />
+    <Content Include="Assets\rawUfa2\FileNames.txt" />
+    <Content Include="Assets\rawUfa2\NodeData!1m2!1s306142717370725!2u927!2e1!3u933!4b0.raw" />
+    <Content Include="Assets\rawUfa2\NodeData!1m2!1s3061427173707250!2u927!2e1!3u933!4b0.raw" />
+    <Content Include="Assets\rawUfa2\NodeData!1m2!1s3061427173707251!2u927!2e1!3u933!4b0.raw" />
+    <Content Include="Assets\rawUfa2\NodeData!1m2!1s3061427173707252!2u927!2e1!3u933!4b0.raw" />
+    <Content Include="Assets\rawUfa2\NodeData!1m2!1s3061427173707253!2u927!2e1!3u933!4b0.raw" />
+    <Content Include="Assets\rawUfa2\NodeData!1m2!1s3061427173707255!2u927!2e1!3u933!4b0.raw" />
+    <Content Include="Assets\rawUfa2\NodeData!1m2!1s3061427173707257!2u927!2e1!3u933!4b0.raw" />
+    <Content Include="Assets\rawUfa2\PlanetoidMetadata.raw" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
