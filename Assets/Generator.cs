@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.IO;
 using System.Linq;
 using B83.Image.BMP;
@@ -10,10 +9,6 @@ using s1;
 
 public class Generator : MonoBehaviour
 {
-    private double min_x = Double.MaxValue, max_x = Double.MinValue;
-    private double min_y = Double.MaxValue, max_y = Double.MinValue;
-    private double min_z = Double.MaxValue, max_z = Double.MinValue;
-    private int SCALE = 1000;
 
     // Start is called before the first frame update
     void Start()
@@ -30,8 +25,9 @@ public class Generator : MonoBehaviour
     void GenerateMeshes()
     {
         bool is_jpg;
+        string dir= "Assets/rawLouvre/";
         var dataList = createDataList(
-            "Assets/raw/");
+            dir);
         int i = 0;
         GameObject map = new GameObject("map");
         foreach (var data in dataList)
@@ -61,16 +57,18 @@ public class Generator : MonoBehaviour
                 gameObject.transform.parent = map.transform;
                 gameObject.transform.Rotate(-90,0,0);
                 var tex = new Texture2D((int) curMesh.TexW,(int) curMesh.TexH, TextureFormat.RGBA32, true);
-                var texFile = File.ReadAllBytes("Assets/obj/30604060716363607-20-927/tex_"+ curMesh.Name+".bmp");
+                string texName = "30604060716363607-20-927";
                 if (curMesh.Is_jpg)
                 {
-                     tex.LoadImage(texFile);
+                    var texFile = File.ReadAllBytes("Assets/obj/"+texName+"/tex_"+ curMesh.Name+".jpg");
+                    tex.LoadImage(texFile);
                 }else
                 {      
+                    var texFile = File.ReadAllBytes("Assets/obj/"+texName+"/tex_"+ curMesh.Name+".bmp");
                     var bmpLoader = new BMPLoader();
                     var bmpImg = bmpLoader.LoadBMP(texFile);
                     tex = bmpImg.ToTexture2D();
-
+                
                 }
                 rend.material.mainTexture = tex;
             }
@@ -88,7 +86,9 @@ public class Generator : MonoBehaviour
     {
         var geoCoord = curMesh.toGPS(curMesh.Vertices);
         //Координаты, по которым мы изначально искали карту
-        var converter = new GeoCoordsConverter(54.7409485, 56.0211155);
+        var latitude = 48.861046;
+        var longitude = 2.335324;
+        var converter = new GeoCoordsConverter(latitude, longitude  );
         foreach (var coord in geoCoord)
         {
             var newCoords = converter.MapToScene(coord);
@@ -109,27 +109,4 @@ public class Generator : MonoBehaviour
     {
         ans.AddRange(from normal in curMesh.Normals let x = normal.X  let y = normal.Y  let z = normal.Z select new Vector3((float) x, (float) y, (float) z));
     }
-
-
-    // List<Vector3> Center_Scale(ref List<Data.Vertice> ver)
-    // {
-    //     var center_x = (max_x + min_x) / 2;
-    //     var center_y = (max_y + min_y) / 2;
-    //     var center_z = (max_z + min_z) / 2;
-    //     var distance_x = Math.Abs(max_x - min_x);
-    //     var distance_y = Math.Abs(max_y - min_y);
-    //     var distance_z = Math.Abs(max_z - min_z);
-    //     var max_distance = Math.Max(Math.Max(distance_x, distance_y), distance_z);
-    //     var SCALE = 10;
-    //     var ans = new List<Vector3>();
-    //     foreach (var vertex in ver)
-    //     {
-    //         var x = (vertex.X - center_x) / max_distance * SCALE;
-    //         var y = (vertex.Y - center_y) / max_distance * SCALE;
-    //         var z = (vertex.Z - center_z) / max_distance * SCALE;
-    //         ans.Add(new Vector3((float) x, (float) y, (float) z));
-    //     }
-    //
-    //     return ans;
-    // }
 }
